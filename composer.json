@@ -1,0 +1,47 @@
+{
+    "name": "amashukov/eth-php",
+    "description": "Standalone Ethereum / EVM SDK for PHP — Keccak-256, secp256k1 + ECDSA (RFC 6979), RLP, EIP-1559 offline signing, ABI calldata encoder, and an ethers.js-style JSON-RPC client. Umbrella package pulling the full pure-PHP EVM stack.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["ethereum", "evm", "sdk", "ethers", "web3", "eip-1559", "abi", "keccak", "secp256k1", "blockchain"],
+    "authors": [
+        {
+            "name": "Andrei Mashukov",
+            "email": "a.mashukoff@gmail.com",
+            "homepage": "https://github.com/AndreyMashukov"
+        }
+    ],
+    "require": {
+        "php": ">=8.3",
+        "ext-bcmath": "*",
+        "ext-gmp": "*",
+        "amashukov/abi-encoder-php": "^0.1.0",
+        "amashukov/eip1559-tx-signer-php": "^0.1.0",
+        "amashukov/eth-rpc-client-php": "^0.1.0",
+        "amashukov/keccak-php": "^0.1.0",
+        "amashukov/rlp-php": "^0.1.0",
+        "amashukov/secp256k1-php": "^0.1.0"
+    },
+    "require-dev": {
+        "amashukov/rector-php-rules": "^0.1.0",
+        "friendsofphp/php-cs-fixer": "^3.50",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0",
+        "rector/rector": "^2.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Amashukov\\Eth\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit",
+        "stan": "phpstan analyse --memory-limit=512M",
+        "cs": "php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "php-cs-fixer fix",
+        "rector": "rector process --dry-run"
+    }
+}
